@@ -1,10 +1,11 @@
+
 <style>
 body {
 	color:black;
 }
 * {
     box-sizing: border-box;
-	
+
 }
 ul {
     margin: 0;
@@ -105,3 +106,5 @@ input {
     background-color: #bbb;
 }
 </style>
+
+

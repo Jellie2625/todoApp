@@ -1,0 +1,76 @@
+<html>
+   
+   <head>
+      <title>Myapp</title>
+      <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<script src="java.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+ <body>
+
+<div id="myDIV" class="header">
+  <h2>WHAT TO DO ...</h2>
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         <table>
+            <tr>
+               <td><input type = "text" id="myInput" placeholder="To do.." ng-model = "student.firstName">
+               
+  <span onclick="newElement()" class="addBtn">Add</span>  </td>
+            </tr> 
+ 
+         </table>
+
+         <br/>
+ <table><tr><td>{{student.fullName() | uppercase}}</td>
+</tr> <td> <ul><li ng-repeat = "subject in student.subjects | filter: subjectName |orderBy:'marks'">
+                        {{ subject.name + ', marks:' + subject.marks }}
+                     </li>
+                  </ul> </td></tr>
+         </table> </div>
+  </div>
+
+
+<ul id="myUL">
+</ul>
+
+
+
+
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "",
+               lastName: "",
+            
+               
+               subjects:[
+                  
+               ],
+               
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+</html>
+
+ 
+
+ 
+
+ 
